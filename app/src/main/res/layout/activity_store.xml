@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/shopText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="SHOP"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="48dp"
+        android:textColor="#000000"
+        android:typeface="monospace"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@drawable/shape"
+        android:clickable="true"
+        android:id="@+id/ball0"
+        android:layout_marginLeft="38dp"
+        android:layout_marginStart="38dp"
+        android:layout_below="@+id/shopText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="28dp" />
+
+    <ImageButton
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@drawable/shape"
+        android:clickable="true"
+        android:id="@+id/ball2"
+        android:layout_marginRight="38dp"
+        android:layout_marginEnd="38dp"
+        android:layout_alignTop="@+id/ball0"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@drawable/ball1"
+        android:clickable="true"
+        android:id="@+id/ball1"
+        android:layout_alignTop="@+id/ball0"
+        android:layout_alignLeft="@+id/ball4"
+        android:layout_alignStart="@+id/ball4" />
+
+    <ImageButton
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@drawable/shape"
+        android:clickable="true"
+        android:id="@+id/ball3"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/ball0"
+        android:layout_alignStart="@+id/ball0" />
+
+    <ImageButton
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@drawable/shape"
+        android:clickable="true"
+        android:id="@+id/ball4"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@drawable/shape"
+        android:clickable="true"
+        android:id="@+id/ball5"
+        android:layout_alignTop="@+id/ball4"
+        android:layout_alignLeft="@+id/ball2"
+        android:layout_alignStart="@+id/ball2" />
+
+    <ImageButton
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@drawable/shape"
+        android:clickable="true"
+        android:id="@+id/ball6"
+        android:layout_marginTop="54dp"
+        android:layout_below="@+id/ball3"
+        android:layout_alignLeft="@+id/ball3"
+        android:layout_alignStart="@+id/ball3" />
+
+    <ImageButton
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@drawable/shape"
+        android:clickable="true"
+        android:id="@+id/ball7"
+        android:layout_alignBottom="@+id/ball6"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@drawable/shape"
+        android:clickable="true"
+        android:id="@+id/ball8"
+        android:layout_alignTop="@+id/ball7"
+        android:layout_alignLeft="@+id/ball5"
+        android:layout_alignStart="@+id/ball5" />
+</RelativeLayout>
