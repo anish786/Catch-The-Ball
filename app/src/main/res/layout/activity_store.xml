@@ -29,6 +29,7 @@
         android:layout_below="@+id/shopText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:onClick="loadInterstitial"
         android:layout_marginTop="28dp" />
 
     <ImageButton
@@ -41,6 +42,7 @@
         android:layout_marginEnd="38dp"
         android:layout_alignTop="@+id/ball0"
         android:layout_alignParentRight="true"
+        android:onClick="loadInterstitial"
         android:layout_alignParentEnd="true" />
 
     <ImageButton
@@ -51,6 +53,7 @@
         android:id="@+id/ball1"
         android:layout_alignTop="@+id/ball0"
         android:layout_alignLeft="@+id/ball4"
+        android:onClick="loadInterstitial"
         android:layout_alignStart="@+id/ball4" />
 
     <ImageButton
@@ -61,6 +64,7 @@
         android:id="@+id/ball3"
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/ball0"
+        android:onClick="loadInterstitial"
         android:layout_alignStart="@+id/ball0" />
 
     <ImageButton
@@ -70,6 +74,7 @@
         android:clickable="true"
         android:id="@+id/ball4"
         android:layout_centerVertical="true"
+        android:onClick="loadInterstitial"
         android:layout_centerHorizontal="true" />
 
     <ImageButton
@@ -80,6 +85,7 @@
         android:id="@+id/ball5"
         android:layout_alignTop="@+id/ball4"
         android:layout_alignLeft="@+id/ball2"
+        android:onClick="loadInterstitial"
         android:layout_alignStart="@+id/ball2" />
 
     <ImageButton
@@ -91,6 +97,7 @@
         android:layout_marginTop="54dp"
         android:layout_below="@+id/ball3"
         android:layout_alignLeft="@+id/ball3"
+        android:onClick="loadInterstitial"
         android:layout_alignStart="@+id/ball3" />
 
     <ImageButton
@@ -100,6 +107,7 @@
         android:clickable="true"
         android:id="@+id/ball7"
         android:layout_alignBottom="@+id/ball6"
+        android:onClick="loadInterstitial"
         android:layout_centerHorizontal="true" />
 
     <ImageButton
@@ -110,5 +118,6 @@
         android:id="@+id/ball8"
         android:layout_alignTop="@+id/ball7"
         android:layout_alignLeft="@+id/ball5"
+        android:onClick="loadInterstitial"
         android:layout_alignStart="@+id/ball5" />
 </RelativeLayout>
