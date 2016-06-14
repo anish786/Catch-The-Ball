@@ -1,14 +1,12 @@
-package com.saas.catchtheball;
+package com.saas.touchtheball;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
@@ -20,9 +18,11 @@ public class MainActivity extends AppCompatActivity {
     private Button playButton;
     private Button highScoreButton;
     private Button storeButton;
+    private TextView total;
     AdView mAdView;
     public static ImageButton ball;
-    private static int totalScore;
+    public static int totalScore;
+    private static int ts;
     private SharedPreferences mSharedPreferences;
     public static int count;
     @Override
@@ -30,12 +30,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mSharedPreferences = getPreferences(MODE_PRIVATE);
-        getTotalScore();
+
+        //System.out.println("Total Score: "+getTotalScore());
+        //totalScore = mSharedPreferences.getInt("Total Score", 0);
+        //System.out.println("New Total Score: " + totalScore);
 
         count = 0;
         ball = (ImageButton) findViewById(R.id.Ball);
+        total = (TextView) findViewById(R.id.tScore);
+        ts = mSharedPreferences.getInt("Total Score: ", totalScore);
 
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-8415855867616929/3739957091");
+        System.out.println("Total Score: "+ ts);
+        //mSharedPreferences.edit().putInt("Total Score", totalScore).commit();
+
+
+        total.setText(String.valueOf(totalScore));
+        //totalScore = mSharedPreferences.getInt("Total Score", totalScore);
+
+
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-8415855867616929/1032862695");
 
         mAdView = (AdView) findViewById(R.id.adView);
         AdRequest.Builder adRequest = new AdRequest.Builder();
@@ -93,13 +106,25 @@ public class MainActivity extends AppCompatActivity {
     public void onPause(){
         mAdView.pause();
         super.onPause();
-        mSharedPreferences.edit().putInt("Total Score", totalScore).commit();
+        //mSharedPreferences.edit().putInt("Total Score", totalScore).commit();
     }
 
     @Override
     public void onDestroy(){
         mAdView.destroy();
         super.onDestroy();
+    }
+
+//    @Override
+//    public void onStart(){
+//        super.onStart();
+//        mSharedPreferences.getInt("Total Score", totalScore);
+//    }
+
+
+    @Override
+    public void onBackPressed(){
+
     }
 
     public int getTotalScore(){

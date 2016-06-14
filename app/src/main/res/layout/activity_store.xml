@@ -35,7 +35,7 @@
     <ImageButton
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:background="@drawable/shape"
+        android:background="@drawable/ball2"
         android:clickable="true"
         android:id="@+id/ball2"
         android:layout_marginRight="38dp"
@@ -59,7 +59,7 @@
     <ImageButton
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:background="@drawable/shape"
+        android:background="@drawable/ball3"
         android:clickable="true"
         android:id="@+id/ball3"
         android:layout_centerVertical="true"
@@ -120,4 +120,100 @@
         android:layout_alignLeft="@+id/ball5"
         android:onClick="loadInterstitial"
         android:layout_alignStart="@+id/ball5" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="100 pts"
+        android:id="@+id/text1"
+        android:textSize="15dp"
+        android:textColor="#000000"
+        android:layout_below="@+id/ball1"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="    250 pts"
+        android:id="@+id/text2"
+        android:textSize="15dp"
+        android:textColor="#000000"
+        android:layout_below="@+id/ball2"
+        android:layout_alignLeft="@+id/ball2"
+        android:layout_alignStart="@+id/ball2"
+        android:layout_alignRight="@+id/ball2"
+        android:layout_alignEnd="@+id/ball2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="    500 pts"
+        android:id="@+id/text3"
+        android:textSize="15dp"
+        android:textColor="#000000"
+        android:layout_below="@+id/ball3"
+        android:layout_alignLeft="@+id/ball3"
+        android:layout_alignStart="@+id/ball3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="   1000 pts"
+        android:id="@+id/text4"
+        android:textSize="15dp"
+        android:textColor="#000000"
+        android:layout_alignTop="@+id/text3"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="   2000 pts"
+        android:id="@+id/text5"
+        android:textSize="15dp"
+        android:textColor="#000000"
+        android:layout_alignTop="@+id/text4"
+        android:layout_alignLeft="@+id/ball5"
+        android:layout_alignStart="@+id/ball5" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="   3000 pts"
+        android:id="@+id/text6"
+        android:textSize="15dp"
+        android:textColor="#000000"
+        android:layout_below="@+id/ball6"
+        android:layout_alignLeft="@+id/ball6"
+        android:layout_alignStart="@+id/ball6" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="   4000 pts"
+        android:id="@+id/text7"
+        android:textSize="15dp"
+        android:textColor="#000000"
+        android:layout_below="@+id/ball7"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="   5000 pts"
+        android:id="@+id/text8"
+        android:textSize="15dp"
+        android:textColor="#000000"
+        android:layout_below="@+id/ball8"
+        android:layout_alignLeft="@+id/ball8"
+        android:layout_alignStart="@+id/ball8" />
+
 </RelativeLayout>

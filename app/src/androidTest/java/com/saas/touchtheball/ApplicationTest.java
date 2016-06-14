@@ -1,4 +1,4 @@
-package com.saas.catchtheball;
+package com.saas.touchtheball;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

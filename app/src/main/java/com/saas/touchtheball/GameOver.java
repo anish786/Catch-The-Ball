@@ -1,8 +1,7 @@
-package com.saas.catchtheball;
+package com.saas.touchtheball;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.MainThread;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -11,8 +10,6 @@ import android.widget.TextView;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
-
-import org.w3c.dom.Text;
 
 /**
  * Created by Anish Ali on 6/2/2016.
@@ -31,7 +28,8 @@ public class GameOver extends AppCompatActivity {
 
         System.out.println("Count: " + MainActivity.count);
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-8415855867616929/1793402299");
+        mInterstitialAd.setAdUnitId("ca-app-pub-8415855867616929/2509595894");
+
 
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
@@ -77,10 +75,14 @@ public class GameOver extends AppCompatActivity {
         });
     }
     private void requestNewInterstitial() {
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice("E7C584FC96C075610AA859CC0E734936")
-                .build();
+        AdRequest adRequest = new AdRequest.Builder().build();//addTestDevice("E7C584FC96C075610AA859CC0E734936").build();
 
         mInterstitialAd.loadAd(adRequest);
+    }
+
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(GameOver.this, MainActivity.class);
+        startActivity(intent);
     }
 }

@@ -1,28 +1,23 @@
-package com.saas.catchtheball;
+package com.saas.touchtheball;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.content.DialogInterface;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.Point;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
-import android.view.Display;
-import android.view.LayoutInflater;
+import android.view.SoundEffectConstants;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -46,31 +41,32 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private TextView goScore;
     private TextView hScore;
     private SharedPreferences mSharedPreferences;
+    private MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         mSharedPreferences = getPreferences(MODE_PRIVATE);
-
         MainActivity.ball = (ImageButton) findViewById(R.id.Ball);
+        //Toast.makeText(getApplicationContext(), "Tap ball to score", Toast.LENGTH_LONG).show();
 
         //changing the ball
         StoreActivity sa = new StoreActivity();
-        MainActivity.ball.setBackgroundResource(R.drawable.ball0);
+        //MainActivity.ball.setBackgroundResource(R.drawable.ball0);
         MainActivity.count = MainActivity.count + 1;
-//        if(sa.selected == 0){
-//            MainActivity.ball.setBackgroundResource(R.drawable.ball0);
-//        }
-//        else if(sa.selected == 1){
-//            MainActivity.ball.setBackgroundResource(R.drawable.ball1);
-//        }
-//        else if(sa.selected == 2){
-//            MainActivity.ball.setBackgroundResource(R.drawable.ball0);
-//        }
-//        else if(sa.selected == 3){
-//            MainActivity.ball.setBackgroundResource(R.drawable.ball0);
-//        }
+        if(sa.selected == 0){
+            MainActivity.ball.setBackgroundResource(R.drawable.ball0);
+        }
+        if(sa.selected == 1){
+            MainActivity.ball.setBackgroundResource(R.drawable.ball1);
+        }
+        if(sa.selected == 2){
+            MainActivity.ball.setBackgroundResource(R.drawable.ball2);
+        }
+        if(sa.selected == 3){
+            MainActivity.ball.setBackgroundResource(R.drawable.ball0);
+        }
 //        else if(sa.selected == 4){
 //            MainActivity.ball.setBackgroundResource(R.drawable.ball0);
 //        }
@@ -94,8 +90,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         hScore = (TextView) findViewById(R.id.HighScoreText);
         score = 0;
         hs = mSharedPreferences.getInt("High Score", 0);
+        MainActivity.totalScore = mSharedPreferences.getInt("Total Score", 0);
+        System.out.println("HS: " + hs);
+        System.out.println("Total Score In GAME: " + MainActivity.totalScore);
 
 
+        scoreText.setText("Tap ball");
         displaymetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
         width = displaymetrics.widthPixels;
@@ -142,10 +142,17 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    private void playTouchSound() {
+        AudioManager audioManager =
+                (AudioManager) this.getSystemService(Context.AUDIO_SERVICE);
+        audioManager.playSoundEffect(SoundEffectConstants.CLICK);
+    }
+
     @Override
     protected void onPause(){
         super.onPause();
         mSharedPreferences.edit().putInt("High Score", hs).commit();
+        mSharedPreferences.edit().putInt("Total Score", MainActivity.totalScore).commit();
     }
     public void setHighScore(){
         if(hs < score){
@@ -156,6 +163,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     public void setTotal(){
         MainActivity ma = new MainActivity();
         ma.setTotalScore(score);
+        //mSharedPreferences.edit().putInt("Total Score", ma.getTotalScore()).commit();
     }
     public int getScore(){
         return score;
@@ -166,6 +174,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     public void onClick(View v){
+        playTouchSound();
         score = score + 1;
         scoreText.setText(new String(String.valueOf(score)));
     }
@@ -173,6 +182,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private AnimatorSet createAnimation() {
         int nextX = random.nextInt(width);
         int nextY = random.nextInt(height);
+
         animation1 = ObjectAnimator.ofFloat(MainActivity.ball, "x", nextX);
         animation1.setDuration(900);
         animation2 = ObjectAnimator.ofFloat(MainActivity.ball, "y", nextY);
@@ -185,6 +195,22 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     public void BeginPlayingGame(){
         int nextX = random.nextInt(width);
         int nextY = random.nextInt(height);
+
+
+
+
+        while(nextX > width){
+            nextX = random.nextInt(width);
+
+        }
+        while(nextY > height){
+            nextY = random.nextInt(height);
+
+        }
+        //System.out.println("Width: " + width);
+        //System.out.println("Height: " + height);
+        //System.out.println("Next X: " + nextX);
+        //System.out.println("Nexy Y: " + nextY);
         animation1 = ObjectAnimator.ofFloat(MainActivity.ball, "x", MainActivity.ball.getX(),
                 nextX);
 
@@ -228,5 +254,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             set.playTogether(animation1, animation2);
             set.start();
         }
+    }
+
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(GameActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 }

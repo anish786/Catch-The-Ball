@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "833235733983",
-    "firebase_url": "https://project-5053605195028118922.firebaseio.com",
-    "project_id": "project-5053605195028118922",
-    "storage_bucket": "project-5053605195028118922.appspot.com"
+    "project_number": "323913768465",
+    "firebase_url": "https://touch-the-ball.firebaseio.com",
+    "project_id": "touch-the-ball",
+    "storage_bucket": "touch-the-ball.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:833235733983:android:a771ced516b86d64",
+        "mobilesdk_app_id": "1:323913768465:android:52366ea90141a2e5",
         "android_client_info": {
-          "package_name": "com.saas.catchtheball"
+          "package_name": "com.saas.touchtheball"
         }
       },
       "oauth_client": [
         {
-          "client_id": "833235733983-1uuajmc25f281c8clb380iredhqr7e8m.apps.googleusercontent.com",
+          "client_id": "323913768465-32tbvsova8hluf298apon350ugg7fcm5.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAXQhxpuc_5uKjrq5yltOcheMnjqNv5zSE"
+          "current_key": "AIzaSyASMG4G5-7MEiLRYxjZdsMcR7g2E2hb2ek"
         }
       ],
       "services": {

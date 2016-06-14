@@ -17,6 +17,17 @@
         android:textSize="20dp" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="0"
+        android:id="@+id/tScore"
+        android:layout_gravity="center_horizontal"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="#e35959" />
+
+    <TextView
         android:id="@+id/highScore1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -30,7 +41,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Catch The Ball"
+        android:text="Touch The Ball"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="48dp"
         android:textColor="#000000"
@@ -56,7 +67,7 @@
         android:textSize="20dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
